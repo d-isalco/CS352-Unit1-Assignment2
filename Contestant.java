@@ -17,4 +17,6 @@ public class Contestant extends Person {
 	
 	
 	// Step 5 Add attributes and methods to assist with recording game statistics
+
+	
 }
