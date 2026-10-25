@@ -39,6 +39,7 @@ public class ContestDriver {
 
 		// Loop through the specified number of rounds
 		for (int round = 1; round <= numberOfRounds; round++){
+			long startTime = System.nanoTime(); // Start measuring time
 
 			System.out.println("\n-- Round " + round + " ---");
 
@@ -67,6 +68,10 @@ public class ContestDriver {
 				System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
 			}
 
+			long endTime = System.nanoTime(); // End measuring time
+			double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0; // Convert to seconds
+			System.out.println("Elapsed time: " + elapsedTimeInSeconds + " seconds");
+
 			System.out.println("\n--- Average Position ---");
 
 			for (int i = 0; i < contestantList.size(); i++) {
@@ -77,8 +82,11 @@ public class ContestDriver {
 					contestant.getAveragePosition()
 				);
 			}
+
+
 		}
 		
+
 		// Steps 5 - 7
 		// Repeat Steps 3 and 4 many times to gather data.
 		// You will need to modify the Contestant class so each Contestant
