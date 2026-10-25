@@ -17,17 +17,14 @@ public class ContestDriver {
 		// Create multiple Contestants and add them to an ArrayList
 		// Do something simple to get started, but remember, you will need
 		// to generate up to 1,000,000 Contestants	
+		int numberOfContestants = 43;
+
 		ArrayList<Contestant> contestantList = new ArrayList<>();
-		contestantList.add (new Contestant("David", 43));
-		contestantList.add (new Contestant("Jose", 22));
-		contestantList.add (new Contestant("Robert", 33));
-		contestantList.add (new Contestant("Cherry", 44));
-		contestantList.add (new Contestant("Tim", 55));
-		contestantList.add (new Contestant("Sarah", 27));
-		contestantList.add (new Contestant("Tequila", 27));
-		contestantList.add (new Contestant("Leon", 39));
-		//contestantList.add (new Contestant("Charles", 49));
-		//contestantList.add (new Contestant("Allen", 51));
+		for (int i = 0; i < numberOfContestants; i++){
+			contestantList.add(
+				new Contestant("Contestant " + (i + 1 ), 25)
+			);
+		}
 		
 		for (int i = 0; i < contestantList.size(); i++) {
 			System.out.println(contestantList.get(i) + " is at index: " + i);
@@ -38,7 +35,7 @@ public class ContestDriver {
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
 		Random random = new Random(); // Create a Random object to generate random numbers
-		int numberOfRounds = 12; // Number of rounds to simulate
+		int numberOfRounds = 1; // Number of rounds to simulate
 
 		// Loop through the specified number of rounds
 		for (int round = 1; round <= numberOfRounds; round++){
