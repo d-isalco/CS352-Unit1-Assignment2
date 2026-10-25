@@ -1,4 +1,5 @@
 
+
 public class ContestDriver {
 
 	public static void main(String[] args) {
@@ -8,15 +9,14 @@ public class ContestDriver {
 
 		// Step 0 - Uncomment the two lines below, then add code to the Contestant class to make this compile
 		// This creates a single Contestant and prints its attributes, just to show it can be done
-		// Contestant ac = new Contestant("Billy",22);
-		// System.out.println(ac);
+		Contestant ac = new Contestant("Billy",22);
+		System.out.println(ac);
 		
 		// Step 2
 		// Create multiple Contestants and add them to an ArrayList
 		// Do something simple to get started, but remember, you will need
 		// to generate up to 1,000,000 Contestants	
-		
-		
+
 		// Steps 3 and 4
 		// Play a round
 		// For each Contestant, flip a coin, then move the Contestant to
