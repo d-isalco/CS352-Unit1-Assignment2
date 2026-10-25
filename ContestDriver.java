@@ -37,7 +37,7 @@ public class ContestDriver {
 		// Play a round
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
-		Random random = new Random(352); // Create a Random object to generate random numbers
+		Random random = new Random(); // Create a Random object to generate random numbers
 		int numberOfRounds = 12; // Number of rounds to simulate
 
 		// Loop through the specified number of rounds
@@ -55,28 +55,24 @@ public class ContestDriver {
 
 				contestantList.remove(currentContestant); // Remove the contestant from the current list
 
-				if (correctCoinFlip) {
-					contestantList.add(0, currentContestant); // Move to the front of the list
-				} else {
-					contestantList.add(currentContestant); // Move to the back of the list
-				}
+					if (correctCoinFlip) {
+						contestantList.add(0, currentContestant); // Move to the front of the list
+					} else {
+						contestantList.add(currentContestant); // Move to the back of the list
+					}	
 			}
 
-					System.out.println("Position after round " + numberOfRounds + ";");
+			System.out.println("Position after round " + numberOfRounds + ";");
 
 			for (int i = 0; i < contestantList.size(); i++) {
 				Contestant contestant = contestantList.get(i);
-
 				contestant.recordPosition(i);
-
 				System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
 			}
-
 
 			System.out.println("\n--- Average Position ---");
 
 			for (int i = 0; i < contestantList.size(); i++) {
-
 				Contestant contestant = contestantList.get(i);
 				System.out.printf(
 					"\n%s: %.2f",
