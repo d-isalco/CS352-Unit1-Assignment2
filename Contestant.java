@@ -26,6 +26,10 @@ public class Contestant extends Person {
 		roundsRecorded++;
 	}
 
+	public int getCurrentPosition() {
+		return currentPosition;
+	}
+
 	public double getAveragePosition() {
 		if (roundsRecorded == 0) {
 			return 0.0; // Avoid division by zero

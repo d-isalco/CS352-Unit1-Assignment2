@@ -66,9 +66,13 @@ public class ContestDriver {
 
 
 		System.out.println("Position after round " + numberOfRounds + ";");
-		
+
 		for (int i = 0; i < contestantList.size(); i++) {
-			System.out.println(contestantList.get(i) + " is at index: " + i);
+			Contestant contestant = contestantList.get(i);
+
+			contestant.recordPosition(i);
+
+			System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
 		}
 
 		// Steps 5 - 7
