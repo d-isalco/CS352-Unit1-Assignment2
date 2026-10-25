@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.Random;
 public class ContestDriver {
 
 	public static void main(String[] args) {
@@ -31,13 +31,39 @@ public class ContestDriver {
 		
 		for (int i = 0; i < contestantList.size(); i++) {
 			System.out.println(contestantList.get(i) + " is at index: " + i);
-	
+		}
+
 		// Steps 3 and 4
 		// Play a round
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
-		
+		Random random = new Random(); // Create a Random object to generate random numbers
+		ArrayList<Contestant> startingOrder = new ArrayList<>(contestantList); // Create a copy of the original order of contestants
+
+		for (int i = 0; i < startingOrder.size(); i++){
+			Contestant currentContestant = startingOrder.get(i); // Get the current contestant from the starting order
+			boolean correctCoinFlip = random.nextBoolean(); // Simulate a coin flip (true for heads, false for tails)
+			contestantList.remove(currentContestant); // Remove the current contestant from the main list
+
+			if (correctCoinFlip) {
+				contestantList.add(0, currentContestant); // Move to the front of the list if heads
+				System.out.println(
+					currentContestant.getName() + " answered correctly and is now at the front of the list."
+				);	
+			} 
+			else {
+				contestantList.add(currentContestant); // Move to the back of the list if tails	
+				
+				System.out.println(
+					currentContestant.getName() + " answered incorrectly and is now at the back of the list."
+				);
+			}
 		}
+		
+		for (int i = 0; i < contestantList.size(); i++) {
+			System.out.println(contestantList.get(i) + " is at index: " + i);
+		}
+
 		// Steps 5 - 7
 		// Repeat Steps 3 and 4 many times to gather data.
 		// You will need to modify the Contestant class so each Contestant
