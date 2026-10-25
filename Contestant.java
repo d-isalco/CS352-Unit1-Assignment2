@@ -15,8 +15,23 @@ public class Contestant extends Person {
 		super(name, age);
 	}
 	
-	
 	// Step 5 Add attributes and methods to assist with recording game statistics
+	private int currentPosition;
+	private long totalPosition;
+	private int roundsRecorded;
 
-	
+	public void recordPosition(int position) {
+		currentPosition = position;
+		totalPosition += position;
+		roundsRecorded++;
+	}
+
+	public double getAveragePosition() {
+		if (roundsRecorded == 0) {
+			return 0.0; // Avoid division by zero
+		}
+		return (double) totalPosition / roundsRecorded;
+	}
+
+
 }

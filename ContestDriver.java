@@ -26,8 +26,8 @@ public class ContestDriver {
 		contestantList.add (new Contestant("Sarah", 27));
 		contestantList.add (new Contestant("Tequila", 27));
 		contestantList.add (new Contestant("Leon", 39));
-		contestantList.add (new Contestant("Charles", 49));
-		contestantList.add (new Contestant("Allen", 51));
+		//contestantList.add (new Contestant("Charles", 49));
+		//contestantList.add (new Contestant("Allen", 51));
 		
 		for (int i = 0; i < contestantList.size(); i++) {
 			System.out.println(contestantList.get(i) + " is at index: " + i);
@@ -38,27 +38,34 @@ public class ContestDriver {
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
 		Random random = new Random(); // Create a Random object to generate random numbers
-		ArrayList<Contestant> startingOrder = new ArrayList<>(contestantList); // Create a copy of the original order of contestants
+		int numberOfRounds = 12; // Number of rounds to simulate
 
-		for (int i = 0; i < startingOrder.size(); i++){
-			Contestant currentContestant = startingOrder.get(i); // Get the current contestant from the starting order
-			boolean correctCoinFlip = random.nextBoolean(); // Simulate a coin flip (true for heads, false for tails)
-			contestantList.remove(currentContestant); // Remove the current contestant from the main list
+		// Loop through the specified number of rounds
+		for (int round = 1; round <= numberOfRounds; round++){
 
-			if (correctCoinFlip) {
-				contestantList.add(0, currentContestant); // Move to the front of the list if heads
-				System.out.println(
-					currentContestant.getName() + " answered correctly and is now at the front of the list."
-				);	
-			} 
-			else {
-				contestantList.add(currentContestant); // Move to the back of the list if tails	
-				
-				System.out.println(
-					currentContestant.getName() + " answered incorrectly and is now at the back of the list."
-				);
+			System.out.println("\n-- Round " + round + " ---");
+
+			ArrayList<Contestant> startingOrder = new ArrayList<>(contestantList); // Create a copy of the original order of contestants
+
+			// Loop trough contestant with a chance to flip a coin and move to the front or back of the list
+			for (int i = 0; i < contestantList.size(); i++) {
+
+				Contestant currentContestant = startingOrder.get(i); // Get the current contestant from the starting order
+				boolean correctCoinFlip = random.nextBoolean(); // Simulate a coin flip (true or false)
+
+				contestantList.remove(currentContestant); // Remove the contestant from the current list
+
+				if (correctCoinFlip) {
+					contestantList.add(0, currentContestant); // Move to the front of the list
+				} else {
+					contestantList.add(currentContestant); // Move to the back of the list
+				}
 			}
 		}
+		
+
+
+		System.out.println("Position after round " + numberOfRounds + ";");
 		
 		for (int i = 0; i < contestantList.size(); i++) {
 			System.out.println(contestantList.get(i) + " is at index: " + i);
