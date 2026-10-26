@@ -18,7 +18,7 @@ public class ContestDriver {
 		// Do something simple to get started, but remember, you will need
 		// to generate up to 1,000,000 Contestants	
 
-		int numberOfContestants = 43; // Set the number of contestants to create
+		int numberOfContestants = 45000; // Set the number of contestants to create
 		int[] roundCounts = {10, 100, 1000, 10000}; // Array of different round counts to test
 
 		System.out.printf(
@@ -105,15 +105,12 @@ public class ContestDriver {
 
 		}
 
-
-
 		// Steps 5 - 7
 		// Repeat Steps 3 and 4 many times to gather data.
 		// You will need to modify the Contestant class so each Contestant
 		// will keep track of its individual statistics. Be smart about how you record its
 		// position at the end of each round.
 		
-
 		System.out.println("\nFinished");
 
 	}
