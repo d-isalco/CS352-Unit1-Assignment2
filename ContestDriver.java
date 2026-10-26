@@ -19,6 +19,14 @@ public class ContestDriver {
 		// to generate up to 1,000,000 Contestants	
 
 		int numberOfContestants = 43; // Set the number of contestants to create
+		int[] roundCounts = {10, 100, 1000, 10000}; // Array of different round counts to test
+
+		System.out.printf(
+			"%12s %12s %16s%n",
+			"Contestants",
+			"Rounds",
+			"Time (seconds)"		
+		);
 
 		ArrayList<Contestant> contestantList = new ArrayList<>();
 		for (int i = 0; i < numberOfContestants; i++){
@@ -27,23 +35,22 @@ public class ContestDriver {
 			);
 		}
 		
-		for (int i = 0; i < contestantList.size(); i++) {
-			System.out.println(contestantList.get(i) + " is at index: " + i);
-		}
+		//for (int i = 0; i < contestantList.size(); i++) {
+		//	System.out.println(contestantList.get(i) + " is at index: " + i);
+		//}
 
 		// Steps 3 and 4
 		// Play a round
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
 		Random random = new Random(); // Create a Random object to generate random numbers
-		int numberOfRounds = 4; // Number of rounds to simulate
+		//int numberOfRounds = 4; // Number of rounds to simulate
 		long startTime = System.nanoTime(); // Start measuring time
 
 		// Loop through the specified number of rounds
-		for (int round = 1; round <= numberOfRounds; round++){
-	
-
-			System.out.println("\n-- Round " + round + " ---");
+		//for (int round = 1; round <= numberOfRounds; round++){
+		for (int numberOfRounds : roundCounts) {
+			//System.out.println("\n-- Round " + round + " ---");
 
 			ArrayList<Contestant> startingOrder = new ArrayList<>(contestantList); // Create a copy of the original order of contestants
 
@@ -62,28 +69,39 @@ public class ContestDriver {
 					}	
 			}
 
-			System.out.println("Position after round " + numberOfRounds + ";");
+			//System.out.println("Position after round " + numberOfRounds + ";");
 
+			// Loop through the contestantList and record their positions
 			for (int i = 0; i < contestantList.size(); i++) {
-				Contestant contestant = contestantList.get(i);
-				contestant.recordPosition(i);
-				System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
+				//Contestant contestant = contestantList.get(i);
+				//contestant.recordPosition(i);
+				//System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
+				contestantList.get(i).recordPosition(i);// Record the current position of the contestant
 			}
-			
+
 		long endTime = System.nanoTime(); // End measuring time
 		double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0; // Convert to seconds
-		System.out.println("\nElapsed time: " + elapsedTimeInSeconds + " seconds");
 
-			System.out.println("\n--- Average Position ---");
+		System.out.printf(
+			"%12d %12d %16.6f%n",
+			numberOfContestants,
+			numberOfRounds,
+			elapsedTimeInSeconds
+		);
 
-			for (int i = 0; i < contestantList.size(); i++) {
-				Contestant contestant = contestantList.get(i);
-				System.out.printf(
-					"\n%s: %.2f",
-					contestant.getName(),
-					contestant.getAveragePosition()
-				);
-			}
+
+		//System.out.println("\nElapsed time: " + elapsedTimeInSeconds + " seconds");
+
+		//System.out.println("\n--- Average Position ---");
+
+			//for (int i = 0; i < contestantList.size(); i++) {
+				//Contestant contestant = contestantList.get(i);
+				//System.out.printf(
+					//"\n%s: %.2f",
+					//contestant.getName(),
+					//contestant.getAveragePosition()
+				//);
+			//}
 
 		}
 
@@ -94,7 +112,7 @@ public class ContestDriver {
 		// You will need to modify the Contestant class so each Contestant
 		// will keep track of its individual statistics. Be smart about how you record its
 		// position at the end of each round.
-
+		
 
 		System.out.println("\nFinished");
 
