@@ -17,7 +17,8 @@ public class ContestDriver {
 		// Create multiple Contestants and add them to an ArrayList
 		// Do something simple to get started, but remember, you will need
 		// to generate up to 1,000,000 Contestants	
-		int numberOfContestants = 43;
+
+		int numberOfContestants = 43; // Set the number of contestants to create
 
 		ArrayList<Contestant> contestantList = new ArrayList<>();
 		for (int i = 0; i < numberOfContestants; i++){
@@ -35,11 +36,12 @@ public class ContestDriver {
 		// For each Contestant, flip a coin, then move the Contestant to
 		// one end of the ArrayList or the other.
 		Random random = new Random(); // Create a Random object to generate random numbers
-		int numberOfRounds = 1; // Number of rounds to simulate
+		int numberOfRounds = 4; // Number of rounds to simulate
+		long startTime = System.nanoTime(); // Start measuring time
 
 		// Loop through the specified number of rounds
 		for (int round = 1; round <= numberOfRounds; round++){
-			long startTime = System.nanoTime(); // Start measuring time
+	
 
 			System.out.println("\n-- Round " + round + " ---");
 
@@ -67,10 +69,10 @@ public class ContestDriver {
 				contestant.recordPosition(i);
 				System.out.println(contestant + " is at index: " + i + " with average position: " + contestant.getCurrentPosition());
 			}
-
-			long endTime = System.nanoTime(); // End measuring time
-			double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0; // Convert to seconds
-			System.out.println("Elapsed time: " + elapsedTimeInSeconds + " seconds");
+			
+		long endTime = System.nanoTime(); // End measuring time
+		double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0; // Convert to seconds
+		System.out.println("\nElapsed time: " + elapsedTimeInSeconds + " seconds");
 
 			System.out.println("\n--- Average Position ---");
 
@@ -83,9 +85,9 @@ public class ContestDriver {
 				);
 			}
 
-
 		}
-		
+
+
 
 		// Steps 5 - 7
 		// Repeat Steps 3 and 4 many times to gather data.
